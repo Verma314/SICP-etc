@@ -1,0 +1,102 @@
+FP 2
+
+
+
+1 ) NOt working. Why?  
+
+
+let dbl :: a -> List a
+
+dbl :: a ->  List a
+
+
+2) create data types:
+
+data Shape = Circle Int | Rect Int Int
+
+
+Prelude> let c1 = Circle 4
+Prelude> :t c1
+
+
+Rect and Circles are constructors here
+Prelude> :t Rect
+Rect :: Int -> Int -> Shape
+
+Prelude> c1
+
+ERROR
+
+Better definition: 	
+data Shape = Circle Int | Rect Int Int deriving Show
+let k = Circle 12
+>k
+Circle 12
+
+
+
+
+OR:
+
+
+data Shape = Circle Float | Rect Float Float deriving (Show, Eq)
+
+Prelude> let area ( Circle r ) = pi * r * r ** 2
+Prelude> let area ( Rect a b ) = a * b
+
+
+
+
+
+
+3) LIST:
+
+
+data List' a  = Empty | Cons a (List' a ) deriving (Show, Eq)
+
+let head' (Cons x list) = x
+
+
+
+
+4) Data Structures:
+
+data BinTree a = Null | Node a ( BinTree a) ( BinTree a ) deriving (Show, Eq)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

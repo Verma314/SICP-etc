@@ -1,0 +1,160 @@
+1) Beating the averages - Paul Graham
+
+
+
+2) Everything in haskell is immutable
+
+3) Static typing
+
+4 ) Composition: let func = ( 1 + ) . ( * 2 )
+
+
+5 ) Recursion: let add1 [] = []; add1 (x:xs) = (x+1): add1 xs
+
+
+6) map : applyToAll fun(x:xs) = fun x : applyToAll fun xs
+
+
+		map ( 1 + ) [ 1..100]
+		filter   ( < 60 ) [ 1..100] 
+		let fact n = foldl (*) 1 [2..n]
+
+
+
+7) list comprehension [ x | x <- [1..100] , mod x 2 == 1 ]
+		      [ x + y | x <- [1..10], y <- [1,3..9] ]
+let 
+
+8) take 2 [ 1, 2, 3,4]               
+ let myTake _ [] = []; myTake 0 _ = [];  myTake n (x:xs) = x : myTake (n-1) xs  
+
+
+
+9) random access :    let infi = [1..]
+			infi !! 1 etc
+
+
+
+10 ) lambda function : let f = \  x  -> x +2 
+	let f = \y -> ( \x -> x + y )
+
+
+takes an argument and returns a function which takes another argument, adds the previous argument and returns the sum :P
+
+
+
+OR  (synactic sugar)
+
+let f = \ x y -> x + y
+
+                                            
+
+
+
+                                                                        
+
+
+
+
+
+
+
+11) fibonaci:  let fib 0 = 0; fib 1 = 1; fib n = fib (n-1 ) + fib (n -2 )
+		map fib [1..10]
+
+
+fib n | n <= 0 = 0
+      | n == 1 = 1
+      | otherwise = fib (n-1) + fib ( n -2 )
+
+
+
+
+12)  conditional:
+
+	let fact n = if n == 0 then 1 else n * fact ( n - 1 )
+
+
+
+
+
+
+13 ) zip functions:
+
+let a = zip [1..10][11..20]
+
+let add (x,y) = x + y
+
+map add a
+-------
+map add $ zip [1..10][11..20]
+
+-------
+
+OR
+
+
+	map ( \ (x,y) -> x + y ) $ zip [1..10][11..20]
+
+
+
+OR
+
+	zipWith (+) [1..10][11..20]
+	
+	zipWith (*) [1..10][11..20]
+
+
+
+14) let ones = repeat 1
+	take 10 ones
+
+
+
+15) let fibs = 0 : 1 : zipWith (+) fibs ( tail fibs)
+
+
+
+16)   reverse[1..10]
+
+
+
+HW: impliment reverse 
+
+
+
+	let myRev [] = []; myRev (x:xs) =  ( myRev xs ) ++  [x]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
